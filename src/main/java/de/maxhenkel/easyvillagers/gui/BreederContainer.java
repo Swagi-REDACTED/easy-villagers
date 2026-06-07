@@ -18,8 +18,9 @@ public class BreederContainer extends InputOutputContainer {
     }
 
     public BreederContainer(int id, Inventory playerInventory, net.minecraft.core.BlockPos pos) {
-        super(Containers.BREEDER_CONTAINER, id, playerInventory, pos);
+        super(Containers.BREEDER_CONTAINER, id, playerInventory);
     }
+
 
     @Override
     public Slot getInputSlot(Container inventory, int id, int x, int y) {
