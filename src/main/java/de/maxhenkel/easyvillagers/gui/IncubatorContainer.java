@@ -18,8 +18,9 @@ public class IncubatorContainer extends InputOutputContainer {
     }
 
     public IncubatorContainer(int id, Inventory playerInventory, net.minecraft.core.BlockPos pos) {
-        super(Containers.INCUBATOR_CONTAINER, id, playerInventory, pos);
+        super(Containers.INCUBATOR_CONTAINER, id, playerInventory);
     }
+
 
     @Override
     public Slot getInputSlot(Container inventory, int id, int x, int y) {
