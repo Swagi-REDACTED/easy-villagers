@@ -5,11 +5,12 @@ import net.minecraft.world.Container;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
-public class VillagerIncubateSlot extends Slot {
-
+public class VillagerIncubateSlot extends LockedSlot {
+ 
     public VillagerIncubateSlot(Container inventoryIn, int index, int xPosition, int yPosition) {
-        super(inventoryIn, index, xPosition, yPosition);
+        super(inventoryIn, index, xPosition, yPosition, true, true);
     }
+
 
     @Override
     public boolean mayPlace(ItemStack stack) {

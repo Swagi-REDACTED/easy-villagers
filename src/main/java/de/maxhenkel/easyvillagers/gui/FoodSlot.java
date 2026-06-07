@@ -5,11 +5,12 @@ import net.minecraft.world.entity.npc.villager.Villager;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
-public class FoodSlot extends Slot {
-
+public class FoodSlot extends LockedSlot {
+ 
     public FoodSlot(Container inventoryIn, int index, int xPosition, int yPosition) {
-        super(inventoryIn, index, xPosition, yPosition);
+        super(inventoryIn, index, xPosition, yPosition, true, true);
     }
+
 
     @Override
     public boolean mayPlace(ItemStack stack) {

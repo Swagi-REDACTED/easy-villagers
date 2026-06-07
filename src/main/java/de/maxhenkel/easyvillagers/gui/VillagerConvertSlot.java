@@ -7,11 +7,12 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 
-public class VillagerConvertSlot extends Slot {
-
+public class VillagerConvertSlot extends LockedSlot {
+ 
     public VillagerConvertSlot(Container inventoryIn, int index, int xPosition, int yPosition) {
-        super(inventoryIn, index, xPosition, yPosition);
+        super(inventoryIn, index, xPosition, yPosition, true, true);
     }
+
 
     @Override
     public boolean mayPlace(ItemStack stack) {
