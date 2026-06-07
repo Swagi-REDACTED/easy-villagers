@@ -19,11 +19,12 @@ public abstract class InputOutputContainer extends VillagerContainerBase {
         }
 
         for (int i = 0; i < 4; i++) {
-            addSlot(new de.maxhenkel.easyvillagers.gui.LockedSlot(outputInventory, i, 52 + i * 18, 51, true, false));
+            addSlot(new OutputSlot(outputInventory, i, 52 + i * 18, 51));
         }
 
         addPlayerInventorySlots();
     }
+
 
     @SuppressWarnings("this-escape")
     public InputOutputContainer(MenuType<?> type, int id, Inventory playerInventory) {
