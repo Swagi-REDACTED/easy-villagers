@@ -30,10 +30,6 @@ public abstract class InputOutputContainer extends VillagerContainerBase {
         this(type, id, playerInventory, new SimpleContainer(4), new SimpleContainer(4), ContainerLevelAccess.NULL);
     }
 
-    @SuppressWarnings("this-escape")
-    public InputOutputContainer(MenuType<?> type, int id, Inventory playerInventory, net.minecraft.core.BlockPos pos) {
-        this(type, id, playerInventory, new SimpleContainer(4), new SimpleContainer(4), ContainerLevelAccess.create(net.minecraft.client.Minecraft.getInstance().level, pos));
-    }
 
     public int getInvOffset() {
         return -2;
