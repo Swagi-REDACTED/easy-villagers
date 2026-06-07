@@ -2,7 +2,7 @@
 Port of easy villagers for fabric!
 
 ## Note: Credits to Henkelmax
-This is a full port of easy villagers for fabric instead of neoforge, I will do my best to maintain it, and all credits for the mods development and creation go to the original mods creator **henkelmax** I just did the simple task of porting it to fabric doing my best to integrate it and all the little bugs to ensure full parity with the original mod!
+This is a full port of easy villagers for fabric instead of neoforge, I will do my best to maintain it, and all credits for the mods development and creation go to the original mods creator [**henkelmax**](https://www.curseforge.com/minecraft/mc-mods/easy-villagers) I just did the simple task of porting it to fabric doing my best to integrate it and all the little bugs to ensure full parity with the original mod!
 
 
 
