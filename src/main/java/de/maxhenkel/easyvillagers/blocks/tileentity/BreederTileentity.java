@@ -28,9 +28,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 
-// TODO: Replace PacketDistributor with Fabric networking
-// import net.neoforged.neoforge.network.PacketDistributor;
-
 import java.util.Optional;
 
 public class BreederTileentity extends FakeWorldTileentity implements IServerTickableBlockEntity, de.maxhenkel.easyvillagers.integration.techreborn.ITRCompatible {
@@ -204,7 +201,7 @@ public class BreederTileentity extends FakeWorldTileentity implements IServerTic
         int value = 0;
         for (int i = 0; i < foodInventory.getContainerSize(); i++) {
             ItemStack stack = foodInventory.getItem(i);
-            value += Villager.FOOD_POINTS.getOrDefault(stack.getItem(), 0) * stack.getCount();
+            value += FoodSlot.getFoodValue(stack) * stack.getCount();
         }
         return value >= 24;
     }
@@ -216,7 +213,7 @@ public class BreederTileentity extends FakeWorldTileentity implements IServerTic
             if (stack.isEmpty()) {
                 continue;
             }
-            int itemValue = Villager.FOOD_POINTS.getOrDefault(stack.getItem(), 0);
+            int itemValue = FoodSlot.getFoodValue(stack);
             if (itemValue <= 0) {
                 continue;
             }

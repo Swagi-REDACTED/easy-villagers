@@ -7,24 +7,29 @@ import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.level.block.Block;
 
-public class ConverterContainer extends InputOutputContainer {
+public class ConverterContainer extends VillagerContainerBase {
 
+    @SuppressWarnings("this-escape")
     public ConverterContainer(int id, Inventory playerInventory, Container inputInventory, Container outputInventory, ContainerLevelAccess access) {
-        super(Containers.CONVERTER_CONTAINER, id, playerInventory, inputInventory, outputInventory, access);
+        super(Containers.CONVERTER_CONTAINER, id, playerInventory, null, access);
+
+        for (int i = 0; i < 4; i++) {
+            addSlot(new VillagerConvertSlot(inputInventory, i, 52 + i * 18, 20));
+        }
+
+        for (int i = 0; i < 4; i++) {
+            addSlot(new OutputSlot(outputInventory, i, 52 + i * 18, 51));
+        }
+
+        addPlayerInventorySlots();
     }
 
-        public ConverterContainer(int id, Inventory playerInventory) {
-        super(Containers.CONVERTER_CONTAINER, id, playerInventory);
+    public ConverterContainer(int id, Inventory playerInventory) {
+        this(id, playerInventory, new net.minecraft.world.SimpleContainer(4), new net.minecraft.world.SimpleContainer(4), net.minecraft.world.inventory.ContainerLevelAccess.NULL);
     }
 
     public ConverterContainer(int id, Inventory playerInventory, net.minecraft.core.BlockPos pos) {
-        super(Containers.CONVERTER_CONTAINER, id, playerInventory, pos);
-    }
-
-
-    @Override
-    public Slot getInputSlot(Container inventory, int id, int x, int y) {
-        return new VillagerConvertSlot(inventory, id, x, y);
+        this(id, playerInventory, new net.minecraft.world.SimpleContainer(4), new net.minecraft.world.SimpleContainer(4), net.minecraft.world.inventory.ContainerLevelAccess.create(de.maxhenkel.easyvillagers.util.ClientContainerHelper.getLevel(), pos));
     }
 
     @Override

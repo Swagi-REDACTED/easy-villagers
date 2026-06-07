@@ -11,8 +11,20 @@ public class FoodSlot extends Slot {
         super(inventoryIn, index, xPosition, yPosition);
     }
 
+    public static int getFoodValue(ItemStack stack) {
+        if (net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("villagerbreedingenhancements")) {
+            net.minecraft.world.food.FoodProperties food = stack.get(net.minecraft.core.component.DataComponents.FOOD);
+            if (food != null) {
+                int value = Math.round(food.nutrition() * 0.8F);
+                return Math.max(0, value);
+            }
+            return 0;
+        }
+        return Villager.FOOD_POINTS.getOrDefault(stack.getItem(), 0);
+    }
+
     public static boolean isValid(ItemStack stack) {
-        return Villager.FOOD_POINTS.getOrDefault(stack.getItem(), 0) > 0;
+        return getFoodValue(stack) > 0;
     }
 
 }
