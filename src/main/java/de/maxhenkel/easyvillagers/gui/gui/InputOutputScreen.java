@@ -1,0 +1,34 @@
+package de.maxhenkel.easyvillagers.gui;
+
+import de.maxhenkel.easyvillagers.gui.ScreenBase;
+import de.maxhenkel.easyvillagers.EasyVillagersMod;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+
+public abstract class InputOutputScreen<T extends AbstractContainerMenu> extends ScreenBase<T> {
+
+    public static final Identifier BACKGROUND = Identifier.fromNamespaceAndPath(EasyVillagersMod.MODID, "textures/gui/container/input_output.png");
+
+    private Inventory playerInventory;
+
+    public InputOutputScreen(T container, Inventory playerInventory, Component name) {
+        super(BACKGROUND, container, playerInventory, name, 176, 164);
+        this.playerInventory = playerInventory;
+    }
+
+    @Override
+    protected void extractLabels(GuiGraphicsExtractor guiGraphics, int x, int y) {
+        drawCenteredText(guiGraphics, getTopText(), 9, fontColor);
+        drawCenteredText(guiGraphics, getBottomText(), 40, fontColor);
+        guiGraphics.text(font, playerInventory.getDisplayName().getVisualOrderText(), 8, imageHeight - 96 + 3, fontColor, false);
+    }
+
+    protected abstract MutableComponent getTopText();
+
+    protected abstract MutableComponent getBottomText();
+
+}
