@@ -18,7 +18,7 @@ public class BreederContainer extends InputOutputContainer {
     }
 
     public BreederContainer(int id, Inventory playerInventory, net.minecraft.core.BlockPos pos) {
-        super(Containers.BREEDER_CONTAINER, id, playerInventory);
+        super(Containers.BREEDER_CONTAINER, id, playerInventory, pos);
     }
 
 

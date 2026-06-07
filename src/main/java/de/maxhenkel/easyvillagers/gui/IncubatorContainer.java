@@ -18,7 +18,7 @@ public class IncubatorContainer extends InputOutputContainer {
     }
 
     public IncubatorContainer(int id, Inventory playerInventory, net.minecraft.core.BlockPos pos) {
-        super(Containers.INCUBATOR_CONTAINER, id, playerInventory);
+        super(Containers.INCUBATOR_CONTAINER, id, playerInventory, pos);
     }
 
 

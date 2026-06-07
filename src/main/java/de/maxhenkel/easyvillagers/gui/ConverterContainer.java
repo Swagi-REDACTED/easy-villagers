@@ -18,7 +18,7 @@ public class ConverterContainer extends InputOutputContainer {
     }
 
     public ConverterContainer(int id, Inventory playerInventory, net.minecraft.core.BlockPos pos) {
-        super(Containers.CONVERTER_CONTAINER, id, playerInventory);
+        super(Containers.CONVERTER_CONTAINER, id, playerInventory, pos);
     }
 
 
